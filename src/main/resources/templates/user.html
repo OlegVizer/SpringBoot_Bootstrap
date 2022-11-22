@@ -1,36 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org" >
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>User</title>
+    <title>User page</title>
 </head>
 <body>
-<h1>User, welcome!</h1>
-<br>
-<table>User info
-  <thread>
+<h1><span th:utext="${user.username}"></span>, welcome spring boot security page!</h1>
+<table border="1" cellpadding="5"
+       style="border-collapse: collapse; border: 1px solid black;">
+    <thead>
     <tr>
-      <th>Id</th>
-      <th>Username</th>
-      <th>Surname</th>
-      <th>Age</th>
-      <th>e-mailEMAIL</th>
-      <th>role</th>
+        <th>Username</th>
+        <th>Hobby</th>
+        <th>Password</th>
     </tr>
-  </thread>
-  <tbody>
-  <tr>
-    <td th:text="${user.getId()}"/>
-    <td th:text="${user.getUsername()}"/>
-    <td th:text="${user.getSurname()}"/>
-    <td th:text="${user.getAge()}"/>
-    <td th:text="${user.getEmail()}"/>
-    <td th:text="${user.getRoles()}"/>
-  </tr>
-  </tbody>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.hobby}"></td>
+        <td>********</td>
+    </tr>
+    </tbody>
 </table>
 <br>
-<form  action="#"  th:action="@{/logout}" method="get">
-  <input type="submit" value="exit"/>
+<form th:method="GET" th:action="@{/logout}">
+    <input type="submit" value="Logout">
 </form>
+
 </body>
 </html>
