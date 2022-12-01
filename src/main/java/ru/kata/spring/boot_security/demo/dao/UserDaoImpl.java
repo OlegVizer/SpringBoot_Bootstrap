@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-public class UserDaoImpl implements UserDao{
+public class UserDaoImpl implements UserDao {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -39,9 +39,9 @@ public class UserDaoImpl implements UserDao{
         entityManager.remove(getUserById(id));
     }
 
-
     @Override
-    public List<User> findByUsername(String username) {
-        return entityManager.createQuery("select u from User u join fetch u.roles where u.username =:username").setParameter("username", username).getResultList();
+    public List<User> findByUsername(String email) {
+        return entityManager.createQuery("select u from User u join fetch u.roles where u.email =:email").setParameter("email", email).getResultList();
     }
+
 }
